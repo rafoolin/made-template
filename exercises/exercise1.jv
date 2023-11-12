@@ -1,3 +1,18 @@
+/*
+Exercise-1:
+	Build an automated data pipeline for the following source:
+		https://opendata.rhein-kreis-neuss.de/api/v2/catalog/datasets/rhein-kreis-neuss-flughafen-weltweit/exports/csv
+
+Goal:
+	Write data into a SQLite database called “airports.sqlite”, in the table “airports”
+	Assign fitting built-in SQLite types (e.g., BIGINT, TEXT or FLOAT) to all columns
+	Do not rename column names!
+	No further data validation is required, do not drop any rows or change any data points
+
+Deadline: 
+	08.11.2023 - 15.11.2023
+*/
+
 pipeline AirportsPipeline {
 
 	// Pipeline
