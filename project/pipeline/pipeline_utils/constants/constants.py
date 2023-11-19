@@ -8,9 +8,12 @@ class FileFormat(Enum):
     Values:
 
     SDMXCSV: Represents the CSV file format.
+    
+    TSV: Represents the TSV file format.
     """
 
     SDMXCSV = "sdmx-csv"
+    TSV = "tsv"
 
     def toExtension(self):
         """
@@ -22,3 +25,5 @@ class FileFormat(Enum):
 
         if self == FileFormat.SDMXCSV:
             return "csv"
+        if self == FileFormat.TSV:
+            return "tsv"
