@@ -15,5 +15,5 @@ def sdg_data_transformer(dataFrame: pd.DataFrame) -> pd.DataFrame:
     dataFrame = dataFrame.dropna()
     # Convert [OBS_VALUE] to contains [int] values
     dataFrame["OBS_VALUE"] = dataFrame["OBS_VALUE"].astype(int)
-    dataFrame = dataFrame.rename({'OBS_VALUE': 'emitted_co2'},axis=1)
+    dataFrame = dataFrame.rename({"OBS_VALUE": "emitted_co2"}, axis=1)
     return dataFrame

@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def road_eqr_carpda_data_transformer(dataFrame: pd.DataFrame) -> pd.DataFrame:   
+def road_eqr_carpda_data_transformer(dataFrame: pd.DataFrame) -> pd.DataFrame:
     # Dropping some columns we do not need
     to_drop = ["DATAFLOW", "LAST UPDATE", "OBS_FLAG"]
     dataFrame = dataFrame.drop(to_drop, axis=1)
@@ -14,7 +14,7 @@ def road_eqr_carpda_data_transformer(dataFrame: pd.DataFrame) -> pd.DataFrame:
     # Drop NA rows
     dataFrame = dataFrame.dropna()
     # Convert [OBS_VALUE] to contains [int] values
-    dataFrame['OBS_VALUE'] = dataFrame['OBS_VALUE'].astype(int)
-    dataFrame = dataFrame.rename({'OBS_VALUE': 'n_passengers'},axis=1)
-    dataFrame = dataFrame.rename({'unit': 'passengers_unit'},axis=1)
+    dataFrame["OBS_VALUE"] = dataFrame["OBS_VALUE"].astype(int)
+    dataFrame = dataFrame.rename({"OBS_VALUE": "n_passengers"}, axis=1)
+    dataFrame = dataFrame.rename({"unit": "passengers_unit"}, axis=1)
     return dataFrame

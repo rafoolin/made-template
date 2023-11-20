@@ -1,5 +1,5 @@
 import pandas as pd
-from etl.extract.zip_helper import GZipFileHelper
+from pipeline_utils.zip_helper import GZipFileHelper
 
 
 def tran_r_vehst_data_extractor(compressed=True):

@@ -4,6 +4,9 @@ import gzip
 import os
 import shutil
 
+from pipeline_utils import constants
+from pipeline_utils import utils
+
 
 class GZipFileHelper:
     """
@@ -20,8 +23,6 @@ class GZipFileHelper:
         Args:
             url (str): The URL to extract file format from.
         """
-        from pipeline_utils.constants.constants import FileFormat
-
         # Separate the query section of the URL
         query_parameters = url.split("/")[-1].split("&")
         file_format = None
@@ -29,7 +30,7 @@ class GZipFileHelper:
             if "format" in param:
                 file_format = param.replace("format=", "").lower().strip("?")
 
-        return FileFormat(value=file_format).toExtension()
+        return constants.FileFormat(value=file_format).toExtension()
 
     def __is_file_compressed(self, url):
         """
@@ -66,8 +67,6 @@ class GZipFileHelper:
         """
         Downloads and extracts a GZip/CSV file from the given URL.
         """
-        from pipeline_utils import utils
-        from pipeline_utils.constants.constants import FileFormat
 
         logging.info("\t [download_and_extract_gz] started...")
         cwd = utils.get_directory_absolute_path()
