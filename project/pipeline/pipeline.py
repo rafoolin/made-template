@@ -23,9 +23,9 @@ class pipeline:
 
     def __merge(self):
         self.merged_data = loader.mergeDataToSQL(
-            sdg_data=self.cleaned_road,
+            sdg_data=self.cleaned_sdg,
             road_data=self.cleaned_road,
-            tran_data=self.cleaned_road,
+            tran_data=self.cleaned_tran,
         )
 
     def __load(self):
@@ -46,5 +46,5 @@ class pipeline:
         self.__load()
 
 
-def __main__():
+if __name__ == "__main__":
     pipeline().run_pipeline()
