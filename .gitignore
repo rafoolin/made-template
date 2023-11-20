@@ -4,3 +4,4 @@
 
 # My gitignore files and folders
 *.sqlite
+.etl_pipeline

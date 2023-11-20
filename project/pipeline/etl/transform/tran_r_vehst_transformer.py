@@ -16,6 +16,10 @@ def tran_r_vehst_data_transformer(dataFrame: pd.DataFrame) -> pd.DataFrame:
     dataFrame = dataFrame[~filter]
     # Drop NA rows
     dataFrame = dataFrame.dropna()
+    # Drop vehicle column
+    dataFrame = dataFrame.drop(["vehicle"], axis=1)
     # Convert [OBS_VALUE] to contains [int] values
     dataFrame["OBS_VALUE"] = dataFrame["OBS_VALUE"].astype(int)
+    dataFrame = dataFrame.rename({'OBS_VALUE': 'n_vehicles'},axis=1)
+    dataFrame = dataFrame.rename({'unit': 'vehicles_unit'},axis=1)
     return dataFrame

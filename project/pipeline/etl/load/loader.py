@@ -4,7 +4,7 @@ import sqlite3
 
 def mergeDataToSQL(sdg_data, road_data, tran_data) -> pd.DataFrame:
     # Merge based on the time and country code
-    merge_on = ["geo", "TIME_PERIOD", 'unit']
+    merge_on = ["geo", "TIME_PERIOD"]
     sdg_tran_data = pd.merge(sdg_data, tran_data, on=merge_on, how="inner")
     merged_data = pd.merge(road_data, sdg_tran_data, on=merge_on, how="inner")
     return merged_data.dropna()
