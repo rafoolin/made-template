@@ -86,6 +86,7 @@ class pipeline:
             return
 
         # Transform
+        # TODO:: rafoolin/made-template#14
         try:
             self.__transform()
         except Exception as e:
