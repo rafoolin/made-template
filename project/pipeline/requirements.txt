@@ -1,4 +1,6 @@
 virtualenv==20.24.6
+termcolor==2.3.0
+# From course
 attrs==22.2.0
 greenlet==2.0.2
 iniconfig==2.0.0
