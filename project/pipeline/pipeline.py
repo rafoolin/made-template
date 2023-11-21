@@ -3,6 +3,7 @@ from termcolor import colored
 
 import etl.extract.sdg_extractor as sdg_e
 import etl.extract.geo_extractor as geo_e
+import etl.extract.unit_extractor as unit_e
 import etl.extract.tran_r_vehst_extractor as tran_e
 import etl.extract.road_eqr_carpda_extractor as road_e
 import etl.transform.road_eqr_carpda_transformer as road_t
@@ -23,6 +24,10 @@ class pipeline:
         print(colored("Extracting GEO data source...", "green"))
         self.geo = geo_e.geo_data_extractor()
         print(colored("Extracting GEO data source Finished!", "green"))
+        
+        print(colored("Extracting unit data source...", "green"))
+        self.unit = unit_e.unit_data_extractor()
+        print(colored("Extracting unit data source Finished!", "green"))
 
         print(colored("Extracting Tran_r_vhest data source...", "green"))
         self.tran = tran_e.tran_r_vehst_data_extractor()
