@@ -7,6 +7,7 @@ import etl.transform.tran_r_vehst_transformer as tran_t
 import etl.transform.sdg_transformer as sdg_t
 import etl.load.loader as loader
 import logging
+from termcolor import colored
 
 
 class pipeline:
@@ -14,63 +15,65 @@ class pipeline:
         """
         Extract data sources in this project
         """
-        print("Extracting SDG data source...")
+        print(colored("Extracting SDG data source...", "green"))
         self.sdg = sdg_e.sdg_data_extractor()
-        print("Extracting SDG data source Finished!")
+        print(colored("Extracting SDG data source Finished!", "green"))
 
-        print("Extracting GEO data source...")
+        print(colored("Extracting GEO data source...", "green"))
         self.geo = geo_e.geo_data_extractor()
-        print("Extracting GEO data source Finished!")
+        print(colored("Extracting GEO data source Finished!", "green"))
 
-        print("Extracting Tran_r_vhest data source...")
+        print(colored("Extracting Tran_r_vhest data source...", "green"))
         self.tran = tran_e.tran_r_vehst_data_extractor()
-        print("Extracting Tran_r_vhest data source Finished!")
+        print(colored("Extracting Tran_r_vhest data source Finished!", "green"))
 
-        print("Extracting Road_eqr_catpda data source...")
+        print(colored("Extracting Road_eqr_catpda data source...", "green"))
         self.road = road_e.road_eqr_carpda_data_extractor()
-        print("Extracting Road_eqr_catpda data source Finished!")
+        print(colored("Extracting Road_eqr_catpda data source Finished!", "green"))
 
     def __transform(self):
         """
         Transform and clean data sources in this project
         """
-        print("Transforming Road_eqr_catpda data source...")
+        print(colored("Transforming Road_eqr_catpda data source...", "green"))
         self.cleaned_road = road_t.road_eqr_carpda_data_transformer(self.road)
-        print("Transforming Road_eqr_catpda data source Finished!")
+        print(colored("Transforming Road_eqr_catpda data source Finished!", "green"))
 
-        print("Transforming tran_r_vehst data source...")
+        print(colored("Transforming tran_r_vehst data source...", "green"))
         self.cleaned_tran = tran_t.tran_r_vehst_data_transformer(self.tran)
-        print("Transforming tran_r_vehst data source Finished!")
+        print(colored("Transforming tran_r_vehst data source Finished!", "green"))
 
-        print("Transforming SDG data source...")
+        print(colored("Transforming SDG data source...", "green"))
         self.cleaned_sdg = sdg_t.sdg_data_transformer(self.sdg)
-        print("Transforming SDG data source Finished!")
+        print(colored("Transforming SDG data source Finished!", "green"))
 
     def __merge(self):
         """
         Merge data sources in this project into one data frame
         """
 
-        print("Merging data sources...")
+        print(colored("Merging data sources...", "green"))
         self.merged_data = loader.mergeDataToSQL(
             sdg_data=self.cleaned_sdg,
             road_data=self.cleaned_road,
             tran_data=self.cleaned_tran,
         )
-        print("Merging data sources Finished!")
+        # Convert column names to lowercase
+        self.merged_data.columns = self.merged_data.columns.str.lower()
+        print(colored("Merging data sources Finished!", "green"))
 
     def __load(self):
         """
         Save the merged data frame into one SQLITE file.
         """
 
-        print("Saving merged data in a SQLITE DB...")
+        print(colored("Saving merged data in a SQLITE DB...", "green"))
         loader.loadDataToSQL(
             data_frame=self.merged_data,
             db_name="pipeline",
             table_name="co2_cars",
         )
-        print("Saving merged data in a SQLITE DB Finished!")
+        print(colored("Saving merged data in a SQLITE DB Finished!", "green"))
 
     # TODO:: Need better error handling, more specific one with a retry approach
     def run_pipeline(self):
@@ -82,7 +85,11 @@ class pipeline:
             self.__extract()
         except Exception as e:
             logging.error(f"Error: {e}")
-            print("Something went wrong...")
+            print(
+                colored(
+                    "Something went wrong while extracting the data-sources...", "red"
+                )
+            )
             return
 
         # Transform
@@ -91,7 +98,11 @@ class pipeline:
             self.__transform()
         except Exception as e:
             logging.error(f"Error: {e}")
-            print("Something went wrong...")
+            print(
+                colored(
+                    "Something went wrong while transforming the data-sources...", "red"
+                )
+            )
             return
 
         # Merge
@@ -99,7 +110,9 @@ class pipeline:
             self.__merge()
         except Exception as e:
             logging.error(f"Error: {e}")
-            print("Something went wrong...")
+            print(
+                colored("Something went wrong while merging the data-sources...", "red")
+            )
 
             return
 
@@ -108,7 +121,12 @@ class pipeline:
             self.__load()
         except Exception as e:
             logging.error(f"Error: {e}")
-            print("Something went wrong...")
+            print(
+                colored(
+                    "Something went wrong while loading the merged data-source...",
+                    "red",
+                )
+            )
 
             return
 
