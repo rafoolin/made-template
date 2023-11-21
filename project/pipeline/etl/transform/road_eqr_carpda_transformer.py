@@ -2,6 +2,14 @@ import pandas as pd
 
 
 def road_eqr_carpda_data_transformer(dataFrame: pd.DataFrame) -> pd.DataFrame:
+    """
+    Clean data frame of new passenger cars by type of motor energy data.
+
+    Parameters:
+    - dataFrame (pd.DataFrame): The raw data for new passenger cars by type of motor energy
+    Returns:
+    - pd.DataFrame: Cleaned data
+    """
     # Dropping some columns we do not need
     to_drop = ["DATAFLOW", "LAST UPDATE", "OBS_FLAG"]
     dataFrame = dataFrame.drop(to_drop, axis=1)
