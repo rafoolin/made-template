@@ -1,3 +1,6 @@
+import logging
+from termcolor import colored
+
 import etl.extract.sdg_extractor as sdg_e
 import etl.extract.geo_extractor as geo_e
 import etl.extract.tran_r_vehst_extractor as tran_e
@@ -6,8 +9,6 @@ import etl.transform.road_eqr_carpda_transformer as road_t
 import etl.transform.tran_r_vehst_transformer as tran_t
 import etl.transform.sdg_transformer as sdg_t
 import etl.load.loader as loader
-import logging
-from termcolor import colored
 
 
 class pipeline:

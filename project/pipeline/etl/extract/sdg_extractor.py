@@ -1,5 +1,4 @@
 import pandas as pd
-
 from pipeline_utils.zip_helper import GZipFileHelper
 
 

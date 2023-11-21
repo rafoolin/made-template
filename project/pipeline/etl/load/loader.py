@@ -1,5 +1,6 @@
 import pandas as pd
 import sqlite3
+import pipeline_utils.utils as util
 
 
 def mergeDataToSQL(sdg_data, road_data, tran_data) -> pd.DataFrame:
@@ -21,8 +22,9 @@ def mergeDataToSQL(sdg_data, road_data, tran_data) -> pd.DataFrame:
 
 
 def loadDataToSQL(data_frame: pd.DataFrame, db_name, table_name):
-    import pipeline_utils.utils as util
-
+    """
+    Load data to \data directory and create a SQLITE file.
+    """
     cwd = util.get_directory_absolute_path()
     path = f"{cwd}/data/{db_name}.sqlite"
     conn = sqlite3.connect(path)
