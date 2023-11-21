@@ -16,7 +16,7 @@ class GZipFileHelper:
     def __init__(self) -> None:
         logging.info("[GZipHelper] started...")
 
-    def __extension_format(self, url):
+    def __extension_format(self, url: str):
         """
         Extracts the file format from the given URL query parameters.
 
@@ -32,7 +32,7 @@ class GZipFileHelper:
 
         return constants.FileFormat(value=file_format).toExtension()
 
-    def __is_file_compressed(self, url):
+    def __is_file_compressed(self, url: str):
         """
         Check whether the requested file from the URL is of type compressed or not.
 
@@ -50,7 +50,7 @@ class GZipFileHelper:
 
         return None
 
-    def __get_file_name(self, url):
+    def __get_file_name(self, url: str):
         """
         Return the name of the file based on the URL
 
@@ -63,7 +63,7 @@ class GZipFileHelper:
 
         return url.split("/")[-2].lower()
 
-    def download_and_extract_url_file(self, url):
+    def download_and_extract_url_file(self, url: str):
         """
         Downloads and extracts a GZip/CSV file from the given URL.
         """

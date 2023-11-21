@@ -8,7 +8,7 @@ class FileFormat(Enum):
     Values:
 
     SDMXCSV: Represents the CSV file format.
-    
+
     TSV: Represents the TSV file format.
     """
 
@@ -27,3 +27,4 @@ class FileFormat(Enum):
             return "csv"
         if self == FileFormat.TSV:
             return "tsv"
+        return None
