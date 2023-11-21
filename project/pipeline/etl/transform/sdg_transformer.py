@@ -2,6 +2,14 @@ import pandas as pd
 
 
 def sdg_data_transformer(dataFrame: pd.DataFrame) -> pd.DataFrame:
+    """
+    Clean data frame of average CO2 emissions per km from new passenger cars data.
+
+    Parameters:
+    - dataFrame (pd.DataFrame): The raw data for average CO2 emissions per km from new passenger cars
+    Returns:
+    - pd.DataFrame: Cleaned data
+    """
     # Dropping some columns we do not need
     to_drop = ["DATAFLOW", "LAST UPDATE", "OBS_FLAG"]
     dataFrame = dataFrame.drop(to_drop, axis=1)
