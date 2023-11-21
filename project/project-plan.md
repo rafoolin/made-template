@@ -46,6 +46,21 @@ Three types of regional data can be distinguished depending on their source: two
 
 The data in this dataset comes from the Common Questionnaire for Transport Statistics, developed and surveyed by Eurostat in cooperation between the United Nations Economic Commission for Europe (UNECE) and the International Transport Forum (ITF) at OECD.
 
+### Side data sources: Europa
+
+These data sources are abbreviation used in the other data sources.
+
+* Data Code list URL: <https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/codelist/ESTAT/GEO/?compressed=true&format=TSV&lang=en>
+* Data Type: TSV
+* Unit Abbr URL: <https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/codelist/ESTAT/UNIT/?compressed=true>
+* Data Type: TSV
+
+## WIKI
+
+Here we is the link to wiki for the projects or exercises if they need more explanation.
+
+* [Week-03][l1]
+
 ## Work Packages
 
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
@@ -56,12 +71,22 @@ The data in this dataset comes from the Common Questionnaire for Transport Stati
 * [Project can cover next exercises][i3]
 * [Write the project plan][i4]
 
+### Week 03
+
+* [Create pipeline for project][i5]
+* [Update project-plan.md for Project Work 03][i6]
+
 [i2]: https://github.com/jvalue/made-template/issues/2
 [i3]: https://github.com/jvalue/made-template/issues/3
 [i4]: https://github.com/jvalue/made-template/issues/4
+[i5]: https://github.com/jvalue/made-template/issues/13
+[i6]: https://github.com/jvalue/made-template/issues/12
 
 ## References and footnotes
 
 [^r1]: EC, 2021, Communication from the Commission to the European Parliament, the Council, the European Economic and Social Committee and the Committee of the Regions ‘Fit for 55’: delivering the EU’s 2030 Climate Target on the way to climate neutrality, COM(2021) 550 final
 
 [^r2]: [Glossary:Passenger_car](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:Passenger_car)
+
+
+[l1]: https://github.com/rafoolin/made-template/wiki/week_03
