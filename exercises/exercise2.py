@@ -55,9 +55,7 @@ class pipeline:
         """
         Save the transformed data frame into one SQLITE file.
         """
-        cwd = pathlib.Path(__file__).parent
-        sqlite_db_path = f"{cwd.parent}/data/trainstops.sqlite"
-        engine = sql.create_engine(f"sqlite:///{sqlite_db_path}")
+        engine = sql.create_engine(f"sqlite:///trainstops.sqlite")
         print("Saving merged data in a SQLITE DB...")
         table_name = "trainstops"
         # 06 - Assign data types
