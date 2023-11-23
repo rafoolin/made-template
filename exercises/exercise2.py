@@ -32,7 +32,7 @@ class pipeline:
         """
         print("Transforming the data source...")
         # 01- Drop [Status] column
-        self.data_frame.drop(["Status"], axis=1)
+        self.data_frame.drop(["Status"], axis=1, inplace=True)
         # 02- Drop rows with invalid values on [Verkehr] column
         # Valid values are ["FV", "RV", "nur DPN"]
         valid_traffic = self.data_frame["Verkehr"].str.match(r"[FV|RV|nur DPN]") == True
