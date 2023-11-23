@@ -35,17 +35,16 @@ class pipeline:
         self.data_frame.drop(["Status"], axis=1, inplace=True)
         # 02- Drop rows with invalid values on [Verkehr] column
         # Valid values are ["FV", "RV", "nur DPN"]
-        valid_traffic = self.data_frame["Verkehr"].str.match(r"[FV|RV|nur DPN]") == True
+        # Only the exact values even subset of it is not OK like RVV is invalid
+        valid_traffic = self.data_frame["Verkehr"].isin(["FV", "RV", "nur DPN"])
         self.data_frame = self.data_frame[valid_traffic]
         # 03- Drop rows with invalid range on [Laenge], [Breite] columns
-        valid_long = self.data_frame["Laenge"].between(-90, 90)
-        self.data_frame = self.data_frame[valid_long]
-        valid_lat = self.data_frame["Breite"].between(-90, 90)
-        self.data_frame = self.data_frame[valid_lat]
+        valid_long_lat = self.data_frame["Laenge"].between(-90, 90) & self.data_frame["Breite"].between(-90, 90)
+        self.data_frame = self.data_frame[valid_long_lat]
         # 04- Drop rows not having the following pattern on [IFOPT] column
         # Pattern: <exactly two characters>:<any amount of numbers>:<any amount of numbers><optionally another colon followed by any amount of numbers>
         regex_pattern = r"\w{2}:\d*:\d*(:\d*){0,1}"
-        valid_traffic = self.data_frame["IFOPT"].str.match(regex_pattern) == True
+        valid_traffic = self.data_frame["IFOPT"].str.match(regex_pattern, na=False) 
         self.data_frame = self.data_frame[valid_traffic]
         # 05- Drop empty cells
         self.data_frame.dropna(inplace=True)
