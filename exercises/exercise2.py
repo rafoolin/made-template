@@ -32,7 +32,7 @@ class pipeline:
         """
         print("Transforming the data source...")
         # 01- Drop [Status] column
-        self.data_frame = self.data_frame.drop(["Status"], axis=1)
+        self.data_frame.drop(["Status"], axis=1)
         # 02- Drop rows with invalid values on [Verkehr] column
         # Valid values are ["FV", "RV", "nur DPN"]
         valid_traffic = self.data_frame["Verkehr"].str.match(r"[FV|RV|nur DPN]") == True
@@ -48,7 +48,7 @@ class pipeline:
         valid_traffic = self.data_frame["IFOPT"].str.match(regex_pattern) == True
         self.data_frame = self.data_frame[valid_traffic]
         # 05- Drop empty cells
-        self.data_frame = self.data_frame.dropna()
+        self.data_frame.dropna(inplace=True)
         print("Transforming the data source Finished!")
 
     def __load(self):
