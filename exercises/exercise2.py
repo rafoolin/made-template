@@ -1,3 +1,7 @@
+""" Exercise-2
+Deadline: 
+	22.11.2023 - 29.11.2023
+"""
 import pandas as pd
 import pathlib
 import sqlalchemy as sql
@@ -35,16 +39,18 @@ class pipeline:
         self.data_frame.drop(["Status"], axis=1, inplace=True)
         # 02- Drop rows with invalid values on [Verkehr] column
         # Valid values are ["FV", "RV", "nur DPN"]
-        # Only the exact values even subset of it is not OK like RVV is invalid
+        # Only the exact values even subset of it is not OK. For example RVV is invalid
         valid_traffic = self.data_frame["Verkehr"].isin(["FV", "RV", "nur DPN"])
         self.data_frame = self.data_frame[valid_traffic]
         # 03- Drop rows with invalid range on [Laenge], [Breite] columns
-        valid_long_lat = self.data_frame["Laenge"].between(-90, 90) & self.data_frame["Breite"].between(-90, 90)
+        valid_long_lat = self.data_frame["Laenge"].between(-90, 90) & self.data_frame[
+            "Breite"
+        ].between(-90, 90)
         self.data_frame = self.data_frame[valid_long_lat]
         # 04- Drop rows not having the following pattern on [IFOPT] column
         # Pattern: <exactly two characters>:<any amount of numbers>:<any amount of numbers><optionally another colon followed by any amount of numbers>
         regex_pattern = r"\w{2}:\d*:\d*(:\d*){0,1}"
-        valid_traffic = self.data_frame["IFOPT"].str.match(regex_pattern, na=False) 
+        valid_traffic = self.data_frame["IFOPT"].str.match(regex_pattern, na=False)
         self.data_frame = self.data_frame[valid_traffic]
         # 05- Drop empty cells
         self.data_frame.dropna(inplace=True)
@@ -92,8 +98,9 @@ class pipeline:
 
 if __name__ == "__main__":
     url = "https://download-data.deutschebahn.com/static/datasets/haltestellen/D_Bahnhof_2020_alle.CSV"
+    retry_threshold = 5
     attempts = 1
-    while attempts < 5:
+    while attempts < retry_threshold:
         try:
             pipeline().run_pipeline(url=url)
             break
@@ -102,5 +109,5 @@ if __name__ == "__main__":
             print(f"Something went wrong! {e}")
             print(f"Try #{attempts} in progress...")
     if attempts == 5:
-        print("\nLOOK!! I tried to run the pipeline 5 times!")
+        print(f"\nLOOK!! I tried to run the pipeline {retry_threshold} times!")
         print("It's your turn to check the code!")
