@@ -3,7 +3,7 @@ import sqlite3
 import pipeline_utils.utils as util
 
 
-def mergeDataToSQL(sdg_data, road_data, tran_data) -> pd.DataFrame:
+def merge_data_to_sql(sdg_data, road_data, tran_data) -> pd.DataFrame:
     """
     Merge data from different sources into a single Pandas DataFrame.
 
@@ -21,9 +21,9 @@ def mergeDataToSQL(sdg_data, road_data, tran_data) -> pd.DataFrame:
     return merged_data.dropna()
 
 
-def loadDataToSQL(data_frame: pd.DataFrame, db_name, table_name):
+def load_data_to_sql(data_frame: pd.DataFrame, db_name, table_name) -> None:
     """
-    Load data to \data directory and create a SQLITE file.
+    Load data to \\data directory and create a SQLITE file.
     """
     cwd = util.get_directory_absolute_path()
     path = f"{cwd}/data/{db_name}.sqlite"
