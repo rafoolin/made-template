@@ -12,7 +12,7 @@ import etl.transform.sdg_transformer as sdg_t
 import etl.load.loader as loader
 
 
-class pipeline:
+class Pipeline:
     def __extract(self):
         """
         Extract data sources in this project
@@ -24,7 +24,7 @@ class pipeline:
         print(colored("Extracting GEO data source...", "green"))
         self.geo = geo_e.geo_data_extractor()
         print(colored("Extracting GEO data source Finished!", "green"))
-        
+
         print(colored("Extracting unit data source...", "green"))
         self.unit = unit_e.unit_data_extractor()
         print(colored("Extracting unit data source Finished!", "green"))
@@ -59,7 +59,7 @@ class pipeline:
         """
 
         print(colored("Merging data sources...", "green"))
-        self.merged_data = loader.mergeDataToSQL(
+        self.merged_data = loader.merge_data_to_sql(
             sdg_data=self.cleaned_sdg,
             road_data=self.cleaned_road,
             tran_data=self.cleaned_tran,
@@ -74,7 +74,7 @@ class pipeline:
         """
 
         print(colored("Saving merged data in a SQLITE DB...", "green"))
-        loader.loadDataToSQL(
+        loader.load_data_to_sql(
             data_frame=self.merged_data,
             db_name="pipeline",
             table_name="co2_cars",
@@ -93,7 +93,8 @@ class pipeline:
             logging.error(f"Error: {e}")
             print(
                 colored(
-                    "Something went wrong while extracting the data-sources...", "red"
+                    "Something went wrong while extracting the data-sources...",
+                    "red",
                 )
             )
             return
@@ -106,7 +107,8 @@ class pipeline:
             logging.error(f"Error: {e}")
             print(
                 colored(
-                    "Something went wrong while transforming the data-sources...", "red"
+                    "Something went wrong while transforming the data-sources...",
+                    "red",
                 )
             )
             return
@@ -117,7 +119,10 @@ class pipeline:
         except Exception as e:
             logging.error(f"Error: {e}")
             print(
-                colored("Something went wrong while merging the data-sources...", "red")
+                colored(
+                    "Something went wrong while merging the data-sources...",
+                    "red",
+                )
             )
 
             return
@@ -138,4 +143,4 @@ class pipeline:
 
 
 if __name__ == "__main__":
-    pipeline().run_pipeline()
+    Pipeline().run_pipeline()
