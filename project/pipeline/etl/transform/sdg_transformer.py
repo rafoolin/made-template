@@ -12,15 +12,18 @@ def sdg_data_transformer(dataFrame: pd.DataFrame) -> pd.DataFrame:
     """
     # Dropping some columns we do not need
     to_drop = ["DATAFLOW", "LAST UPDATE", "OBS_FLAG"]
-    dataFrame = dataFrame.drop(to_drop, axis=1)
+    to_drop_filter = dataFrame.filter(to_drop)
+    dataFrame = dataFrame.drop(to_drop_filter, axis=1)
     # Filter and drop rows that its frequency(freq) is not A|a.
     # This means we only consider annual frequencies!
-    filter = dataFrame["freq"].str.contains(r"[A|a]") == False
-    dataFrame = dataFrame[~filter]
-    # Now that rows are filtered, we drop the column
-    dataFrame = dataFrame.drop(["freq"], axis=1)
+    if "freq" in dataFrame.columns:
+        filter = dataFrame["freq"].str.contains(r"[A|a]") == False
+        dataFrame = dataFrame[~filter]
+        # Now that rows are filtered, we drop the column
+        dataFrame = dataFrame.drop(["freq"], axis=1)
     dataFrame = dataFrame.dropna()
-    # Convert [OBS_VALUE] to contains [int] values
-    dataFrame["OBS_VALUE"] = dataFrame["OBS_VALUE"].astype(int)
-    dataFrame = dataFrame.rename({"OBS_VALUE": "emitted_co2"}, axis=1)
+    if "OBS_VALUE" in dataFrame.columns:
+        # Convert [OBS_VALUE] to contains [int] values
+        dataFrame["OBS_VALUE"] = dataFrame["OBS_VALUE"].astype(int)
+        dataFrame = dataFrame.rename({"OBS_VALUE": "emitted_co2"}, axis=1)
     return dataFrame
