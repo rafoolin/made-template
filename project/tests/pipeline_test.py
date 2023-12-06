@@ -137,11 +137,12 @@ class TestPipeline(unittest.TestCase):
         mock_tran_extractor,
         mock_sdg_extractor,
     ) -> None:
+        # Set mocks
         mock_sdg_extractor.return_value = self.mock_sdg_data
         mock_tran_extractor.return_value = self.mock_tran_data
         mock_road_extractor.return_value = self.mock_road_data
         Pipeline().run_pipeline()
-        # Set mocks
+        # Check calls
         mock_sdg_extractor.assert_called_once()
         mock_tran_extractor.assert_called_once()
         mock_road_extractor.assert_called_once()
