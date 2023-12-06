@@ -149,8 +149,6 @@ class TestPipeline(unittest.TestCase):
         conn = sqlite3.connect(self.db_path)
         query = f"SELECT * FROM {self.table_name}"
         result = pd.read_sql_query(query, conn)
-        print(f"===={result.columns}")
-        print(f"++++{self.expected_result.columns}")
         pd.testing.assert_frame_equal(result, self.expected_result, check_like=True)
         conn.commit()
         conn.close()
