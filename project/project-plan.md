@@ -60,6 +60,7 @@ These data sources are abbreviation used in the other data sources.
 Here we is the link to wiki for the projects or exercises if they need more explanation.
 
 * [Week-03][l1]
+* [Week-04][l2]
 
 ## Work Packages
 
@@ -76,11 +77,16 @@ Here we is the link to wiki for the projects or exercises if they need more expl
 * [Create pipeline for project][i5]
 * [Update project-plan.md for Project Work 03][i6]
 
+### Week 04
+
+* [Write test for pipeline][i7]
+
 [i2]: https://github.com/jvalue/made-template/issues/2
 [i3]: https://github.com/jvalue/made-template/issues/3
 [i4]: https://github.com/jvalue/made-template/issues/4
 [i5]: https://github.com/jvalue/made-template/issues/13
 [i6]: https://github.com/jvalue/made-template/issues/12
+[i7]: https://github.com/jvalue/made-template/issues/18
 
 ## References and footnotes
 
@@ -89,3 +95,4 @@ Here we is the link to wiki for the projects or exercises if they need more expl
 [^r2]: [Glossary:Passenger_car](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:Passenger_car)
 
 [l1]: https://github.com/rafoolin/made-template/wiki/week_03
+[l2]: https://github.com/rafoolin/made-template/wiki/week_04
