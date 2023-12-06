@@ -15,7 +15,7 @@ class FileFormat(Enum):
     SDMXCSV = "sdmx-csv"
     TSV = "tsv"
 
-    def toExtension(self):
+    def toExtension(self) -> str | None:
         """
         Converts the enum value to its corresponding file extension.
 
