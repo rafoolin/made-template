@@ -5,3 +5,4 @@
 # My gitignore files and folders
 *.sqlite
 .etl_pipeline
+.etl_test_pipeline
