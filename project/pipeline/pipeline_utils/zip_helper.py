@@ -1,8 +1,9 @@
-import requests
 import logging
 import gzip
 import os
 import shutil
+import requests
+
 
 from pipeline_utils import constants
 from pipeline_utils import utils
@@ -30,7 +31,7 @@ class GZipFileHelper:
             if "format" in param:
                 file_format = param.replace("format=", "").lower().strip("?")
 
-        return constants.FileFormat(value=file_format).toExtension()
+        return constants.FileFormat(value=file_format).to_extension()
 
     def __is_file_compressed(self, url: str):
         """
