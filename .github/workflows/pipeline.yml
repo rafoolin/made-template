@@ -62,7 +62,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       # Dependencies
-      - name: Install dependencies
+      - name: Install dependencies(pip)
         run: |
           python -m pip install --upgrade pip
+
+      # Run test
+      - name: Run Tests
+        run: |
           bash project/tests.sh
