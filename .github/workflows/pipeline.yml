@@ -3,13 +3,12 @@ name: Pipeline
 on:
   push:
     branches:
-      - "rafoolin/issue20"
+      - main
     paths:
       - project/**
 
 jobs:
-  # TODO:: It's for project in general, not the work project 5!
-  lint:
+  Test:
     strategy:
       matrix:
         platform: [ubuntu-latest]
@@ -21,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref: "rafoolin/issue20"
+          ref: main
 
       # Install python
       - name: Set up Python ${{ matrix.python-version }}
@@ -37,34 +36,10 @@ jobs:
 
       # Check lints
       # TODO:: Lint config didn't work!
+      # TODO:: It's for project in general, not the work project 5!
       - name: Analysing the code with pylint
         run: |
           pylint --rcfile=.pylintrc --disable=C0121,R0801,W0511,W0718,R0903,C0301,R0902,C0116,C0115,E0401,E0611 $(git ls-files 'project/*.py')
-
-  test:
-    strategy:
-      matrix:
-        platform: [ubuntu-latest]
-        python-version: ["3.11"]
-    runs-on: ${{ matrix.platform }}
-
-    steps:
-      # Checkout
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          ref: "rafoolin/issue20"
-
-      # Install python
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v3
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      # Dependencies
-      - name: Install dependencies(pip)
-        run: |
-          python -m pip install --upgrade pip
 
       # Run test
       - name: Run Tests

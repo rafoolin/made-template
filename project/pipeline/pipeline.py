@@ -140,6 +140,5 @@ class Pipeline:
 
             return
 
-# YAML Try 7
 if __name__ == "__main__":
     Pipeline().run_pipeline()
