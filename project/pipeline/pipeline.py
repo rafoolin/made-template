@@ -84,7 +84,7 @@ class Pipeline:
     # TODO:: Need better error handling, more specific one with a retry approach
     def run_pipeline(self):
         """
-        Run the pipeline for this project
+        Run the pipeline for this project and generates data a clean source
         """
         # Extract
         try:
