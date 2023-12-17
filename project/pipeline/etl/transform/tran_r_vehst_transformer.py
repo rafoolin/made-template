@@ -17,13 +17,13 @@ def tran_r_vehst_data_transformer(data_frame: pd.DataFrame) -> pd.DataFrame:
     # Filter and drop rows that its frequency(freq) is not A|a.
     # This means we only consider annual frequencies!
     if "freq" in data_frame.columns:
-        frame_filter = data_frame["freq"].str.contains(r"[A|a]") is False
+        frame_filter = data_frame["freq"].str.contains(r"[A|a]") == False
         data_frame = data_frame[~frame_filter]
         # Now that rows are filtered, we drop the column
         data_frame = data_frame.drop(["freq"], axis=1)
     # Drop [vehicles] other than [CAR]
     if "vehicle" in data_frame.columns:
-        frame_filter = data_frame["vehicle"].str.contains("CAR") is False
+        frame_filter = data_frame["vehicle"].str.contains("CAR") == False
         data_frame = data_frame[~frame_filter]
         # Drop vehicle column
         data_frame = data_frame.drop(["vehicle"], axis=1)

@@ -1,8 +1,8 @@
 import os
 import sqlite3
 import unittest
-import pandas as pd
 from unittest.mock import patch
+import pandas as pd
 from pipeline.pipeline import Pipeline
 from pipeline_utils.utils import get_directory_absolute_path
 

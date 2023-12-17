@@ -15,7 +15,7 @@ class TestRoadDataExtractor(unittest.TestCase):
         mock_read_csv.return_value = mock_csv_data
         # Call the road_eqr_carpda_data_extractor with compressed=True
         result = road_eqr_carpda_data_extractor(compressed=False)
-        path = f"https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/road_eqr_carpda/?format=SDMX-CSV&compressed=False"
+        path = "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/road_eqr_carpda/?format=SDMX-CSV&compressed=False"
         mock_zip_helper.assert_called_once_with(path)
         mock_read_csv.assert_called_once_with("road_file.csv")
         self.assertTrue(result.equals(mock_csv_data))
