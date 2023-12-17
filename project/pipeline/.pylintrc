@@ -1,0 +1,17 @@
+[MAIN]
+
+enable=all
+disable=raw-checker-failed,
+        bad-inline-option,
+        locally-disabled,
+        file-ignored,
+        suppressed-message,
+        useless-suppression,
+        deprecated-pragma,
+        use-symbolic-message-instead,
+        use-implicit-booleaness-not-comparison-to-string,
+        use-implicit-booleaness-not-comparison-to-zero,
+        attribute-defined-outside-init, 
+        missing-module-docstring, 
+        logging-fstring-interpolation, 
+        attribute-defined-outside-init
