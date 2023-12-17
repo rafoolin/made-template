@@ -3,7 +3,7 @@ name: Pipeline
 on:
   push:
     branches:
-      - rafoolin/issue20
+      - "rafoolin/issue20"
     paths:
       - prject/**
 
