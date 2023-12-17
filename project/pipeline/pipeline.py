@@ -9,8 +9,7 @@ import etl.extract.road_eqr_carpda_extractor as road_e
 import etl.transform.road_eqr_carpda_transformer as road_t
 import etl.transform.tran_r_vehst_transformer as tran_t
 import etl.transform.sdg_transformer as sdg_t
-import etl.load.loader as loader
-
+from etl.load import loader
 
 class Pipeline:
     def __extract(self):
