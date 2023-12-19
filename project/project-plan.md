@@ -81,12 +81,17 @@ Here we is the link to wiki for the projects or exercises if they need more expl
 
 * [Write test for pipeline][i7]
 
-[i2]: https://github.com/jvalue/made-template/issues/2
-[i3]: https://github.com/jvalue/made-template/issues/3
-[i4]: https://github.com/jvalue/made-template/issues/4
-[i5]: https://github.com/jvalue/made-template/issues/13
-[i6]: https://github.com/jvalue/made-template/issues/12
-[i7]: https://github.com/jvalue/made-template/issues/18
+### Project Work 05
+
+* [Create a workflow using GitHub actions][i8]
+
+[i2]: https://github.com/rafoolin/made-template/issues/2
+[i3]: https://github.com/rafoolin/made-template/issues/3
+[i4]: https://github.com/rafoolin/made-template/issues/4
+[i5]: https://github.com/rafoolin/made-template/issues/13
+[i6]: https://github.com/rafoolin/made-template/issues/12
+[i7]: https://github.com/rafoolin/made-template/issues/18
+[i8]: https://github.com/rafoolin/made-template/issues/20
 
 ## References and footnotes
 
