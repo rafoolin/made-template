@@ -6,3 +6,11 @@
 *.sqlite
 .etl_pipeline
 .etl_test_pipeline
+
+## JupyterNotebooks ##
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IPython
+profile_default/
+ipython_config.py
