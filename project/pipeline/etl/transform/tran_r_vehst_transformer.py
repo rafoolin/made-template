@@ -34,4 +34,12 @@ def tran_r_vehst_data_transformer(data_frame: pd.DataFrame) -> pd.DataFrame:
         data_frame = data_frame.rename({"OBS_VALUE": "n_vehicles"}, axis=1)
     if "unit" in data_frame.columns:
         data_frame = data_frame.rename({"unit": "vehicles_unit"}, axis=1)
+    # Reset indexes after changing and dropping rows
+    data_frame = data_frame.reset_index(drop=True)
+    if "TIME_PERIOD" in data_frame.columns:
+        # Convert [TIME_PERIOD] to [datetime] values
+        data_frame["TIME_PERIOD"] = data_frame["TIME_PERIOD"].astype(str)
+        data_frame["TIME_PERIOD"] = pd.to_datetime(data_frame["TIME_PERIOD"], format='%Y')
+    # Reset indexes after changing and dropping rows
+    data_frame = data_frame.reset_index(drop=True)
     return data_frame
