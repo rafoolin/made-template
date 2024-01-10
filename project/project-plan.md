@@ -63,6 +63,7 @@ Here is the link to wiki for the projects or exercises if they need more explana
 
 * [Week-03][l1]
 * [Week-04][l2]
+* [Week-06][l3]
 
 ## Work Packages
 
@@ -111,3 +112,4 @@ Here is the link to wiki for the projects or exercises if they need more explana
 
 [l1]: https://github.com/rafoolin/made-template/wiki/week_03
 [l2]: https://github.com/rafoolin/made-template/wiki/week_04
+[l3]: https://github.com/rafoolin/made-template/wiki/week_06
