@@ -2,9 +2,9 @@ import pandas as pd
 from pipeline_utils.zip_helper import GZipFileHelper
 
 
-def geo_data_extractor(compressed=True):
+def motor_energy_data_extractor(compressed=True):
     """
-    Extracts geographic data from the data source URL. This is an abbr mapper to its meaning.
+    Extracts motor energy data from the data source URL. This is an abbr mapper to its meaning.
 
     Parameters:
     - compressed (bool, optional): Flag indicating whether the file is compressed. Both are possible from the data provider.
@@ -15,6 +15,6 @@ def geo_data_extractor(compressed=True):
     - DataFrame: A DataFrame containing the extracted data.
     """
     zip_helper = GZipFileHelper()
-    url = f"https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/codelist/ESTAT/GEO/?compressed={compressed}&format=TSV&lang=en"
+    url = f"https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/codelist/ESTAT/MOT_NRG/?compressed={compressed}&format=TSV&lang=en"
     tsv_file_path = zip_helper.download_and_extract_url_file(url)
-    return pd.read_csv(tsv_file_path, sep="\t", header=0, names=['abbr', 'geo_full_name'])
+    return pd.read_csv(tsv_file_path, sep="\t", header=0, names=['abbr', 'motor_energy_full_name'])

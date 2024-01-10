@@ -3,6 +3,7 @@ from termcolor import colored
 
 import etl.extract.sdg_extractor as sdg_e
 import etl.extract.geo_extractor as geo_e
+import etl.extract.motor_energy_extractor as motor_e
 import etl.extract.unit_extractor as unit_e
 import etl.extract.tran_r_vehst_extractor as tran_e
 import etl.extract.road_eqr_carpda_extractor as road_e
@@ -19,6 +20,10 @@ class Pipeline:
         """
         print(colored("Extracting SDG data source...", "green"))
         self.sdg = sdg_e.sdg_data_extractor()
+        print(colored("Extracting SDG data source Finished!", "green"))
+
+        print(colored("Extracting motor engine data source...", "green"))
+        self.motor_nrg = motor_e.motor_energy_data_extractor()
         print(colored("Extracting SDG data source Finished!", "green"))
 
         print(colored("Extracting GEO data source...", "green"))
