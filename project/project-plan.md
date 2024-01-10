@@ -28,17 +28,7 @@ The goal is to explore the latest Passenger cars[^r2], with a particular focus o
 
 The indicator is defined as the average carbon dioxide (CO2) emissions per km by new passenger cars in a given year. The reported emissions are based on type-approval and can deviate from the actual CO2 emissions of new cars. Since 2021, the emissions are measured with a new test procedure (Worldwide harmonized Light vehicles Test Procedure WLTP), compared to the New European Driving Cycle (NEDC) procedure used until 2020. The WLTP aims to reflect better real driving conditions and WLTP values are systematically higher than NEDC values. This change leads to a break in time series between 2020 and 2021.
 
-### Datasource2:  Europa(Stock of vehicles by category and NUTS 2 regions)
-
-* Metadata URL: <https://ec.europa.eu/eurostat/cache/metadata/en/tran_r_esms.htm>
-* Data URL: <https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/tran_r_vehst/?format=SDMX-CSV&compressed=true>
-* Data Type: CSV
-
-Due to the nature of transport, a spatial reference is built into most legal acts dealing with transport statistics. In a few cases, these sources can be directly used for the derivation of regional transport indicators, while other indicators are collected on a voluntary basis. This is the case of the regional transport data collection in which both data types are used.
-
-Three types of regional data can be distinguished depending on their source: two are based on data collections performed on the basis of legal acts (the Maritime and Aviation data) and one is a voluntary data collection (infrastructures, vehicles and road accidents).
-
-### Datasource3:  Europa(New passenger cars by type of motor energy)
+### Datasource2:  Europa(New passenger cars by type of motor energy)
 
 * Metadata URL: <https://ec.europa.eu/eurostat/cache/metadata/en/rail_if_esms.htm>
 * Data URL: <https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/road_eqr_carpda/?format=SDMX-CSV&compressed=true>
