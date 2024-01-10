@@ -2,7 +2,7 @@
 
 ## Title
 <!-- Give your project a short title. -->
-Correlation analysis between newly registered cars and Greenhouse gas emissions in the European Union.
+Correlation analysis between newly registered cars and Greenhouse gas emissions in the Europe.
 
 ## Main Question
 
@@ -59,7 +59,7 @@ These data sources are abbreviation used in the other data sources.
 
 ## WIKI
 
-Here we is the link to wiki for the projects or exercises if they need more explanation.
+Here is the link to wiki for the projects or exercises if they need more explanation.
 
 * [Week-03][l1]
 * [Week-04][l2]
@@ -68,24 +68,30 @@ Here we is the link to wiki for the projects or exercises if they need more expl
 
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
 
-### Week 02
+### Project Work 02
 
 * [Project needs at least two open data source][i2]
 * [Project can cover next exercises][i3]
 * [Write the project plan][i4]
 
-### Week 03
+### Project Work 03
 
 * [Create pipeline for project][i5]
 * [Update project-plan.md for Project Work 03][i6]
 
-### Week 04
+### Project Work 04
 
 * [Write test for pipeline][i7]
 
 ### Project Work 05
 
 * [Create a workflow using GitHub actions][i8]
+
+### Project Work 06
+
+* [Final report][i9]
+
+* [Update final ETL database to meet the requirements][i10]
 
 [i2]: https://github.com/rafoolin/made-template/issues/2
 [i3]: https://github.com/rafoolin/made-template/issues/3
@@ -94,6 +100,8 @@ Here we is the link to wiki for the projects or exercises if they need more expl
 [i6]: https://github.com/rafoolin/made-template/issues/12
 [i7]: https://github.com/rafoolin/made-template/issues/18
 [i8]: https://github.com/rafoolin/made-template/issues/20
+[i9]: https://github.com/rafoolin/made-template/issues/22
+[i10]: https://github.com/rafoolin/made-template/issues/23
 
 ## References and footnotes
 

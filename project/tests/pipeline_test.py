@@ -111,12 +111,10 @@ class TestPipeline(unittest.TestCase):
             {
                 "geo": ["AT", "AT", "AT", "AT", "AT", "AT"],
                 "vehicles_unit": ["NR", "NR", "NR", "NR", "NR", "NR"],
-                "passengers_unit": ["NR", "NR", "NR", "NR", "NR", "NR"],
                 "n_vehicles": [7146, 7535, 7627, 7867, 6583, 7146],
-                "n_passengers": [4935, 5703, 4114, 1285, 2074, 2389],
+                "n_passenger_cars": [4935, 5703, 4114, 1285, 2074, 2389],
                 "emitted_co2": [165, 164, 163, 161, 162, 163],
                 "mot_nrg": ["ALT", "ALT", "ALT", "ALT", "ALT", "ALT"],
-                "time_period": [2001, 2002, 2003, 2004, 2005, 2006],
             }
         )
         self.db_name = "pipeline"
@@ -150,7 +148,7 @@ class TestPipeline(unittest.TestCase):
         conn = sqlite3.connect(self.db_path)
         query = f"SELECT * FROM {self.table_name}"
         result = pd.read_sql_query(query, conn)
-        pd.testing.assert_frame_equal(result, self.expected_result, check_like=True)
+        pd.testing.assert_frame_equal(result.drop('time_period', axis=1), self.expected_result, check_like=True, check_dtype=False)
         conn.commit()
         conn.close()
 

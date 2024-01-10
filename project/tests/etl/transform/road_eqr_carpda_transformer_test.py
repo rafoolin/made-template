@@ -12,13 +12,12 @@ class TestRoadTransformer(unittest.TestCase):
                 "LAST UPDATE": [1, 2, 3],
                 "OBS_VALUE": ["1", "2", "3"],
                 "freq": ["a", "a", "b"],
-                "unit": ["A", "B", "C"],
+                "unit": ["NR", "NR", "C"],
             }
         )
         expected_result = pd.DataFrame(
             {
-                "n_passengers": [1, 2],
-                "passengers_unit": ["A", "B"],
+                "n_passenger_cars": [1, 2],
             }
         )
         result = road_eqr_carpda_data_transformer(mock_csv_data)
