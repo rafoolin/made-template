@@ -7,22 +7,6 @@
 [![CI/CD](https://github.com/rafoolin/made-template/actions/workflows/pipeline.yml/badge.svg)](https://github.com/rafoolin/made-template/actions/workflows/pipeline.yml)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 
-Table of contents
-- [Association between newly registered cars and Greenhouse gas\[^r1\] emissions in the Europe](#association-between-newly-registered-cars-and-greenhouse-gasr1-emissions-in-the-europe)
-	- [Badges](#badges)
-	- [Introduction](#introduction)
-	- [Documentation](#documentation)
-	- [Jupyter notebook report](#jupyter-notebook-report)
-	- [Run Pipeline Locally](#run-pipeline-locally)
-	- [Running Tests](#running-tests)
-	- [Future work](#future-work)
-	- [Limitations](#limitations)
-	- [Contributing](#contributing)
-	- [Feedback](#feedback)
-	- [Licenses](#licenses)
-
-
-
 ## Introduction
 
 ![cars](./git_resources/pic.jpg)
