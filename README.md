@@ -7,8 +7,23 @@
 [![CI/CD](https://github.com/rafoolin/made-template/actions/workflows/pipeline.yml/badge.svg)](https://github.com/rafoolin/made-template/actions/workflows/pipeline.yml)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 
+Table of contents
+- [Association between newly registered cars and Greenhouse gas\[^r1\] emissions in the Europe](#association-between-newly-registered-cars-and-greenhouse-gasr1-emissions-in-the-europe)
+	- [Badges](#badges)
+	- [Introduction](#introduction)
+	- [Documentation](#documentation)
+	- [Jupyter notebook report](#jupyter-notebook-report)
+	- [Run Pipeline Locally](#run-pipeline-locally)
+	- [Running Tests](#running-tests)
+	- [Future work](#future-work)
+	- [Limitations](#limitations)
+	- [Contributing](#contributing)
+	- [Feedback](#feedback)
+	- [Licenses](#licenses)
 
-# Introduction
+
+
+## Introduction
 
 ![cars](./git_resources/pic.jpg)
 
@@ -22,7 +37,7 @@ There is a [Wiki](https://github.com/rafoolin/made-template/wiki) for some exerc
 
 ## Jupyter notebook report
 
-A Jupyter notebook report titled [report.ipynb](./project/report.ipynb) is available in the `project` directory. This report systematically details the data sources employed and outlines the Extract, Transform, Load (ETL) processes utilized to investigate the primary question. The objective is to identify any potential correlations between the carbon dioxide ($CO_2$) emissions and the motor engine types of recently registered cars in Europe.
+A Jupyter notebook report titled [report.ipynb](https://github.com/rafoolin/made-template/blob/main/project/report.ipynb) is available in the `project` directory. This report systematically details the data sources employed and outlines the Extract, Transform, Load (ETL) processes utilized to investigate the primary question. The objective is to identify any potential correlations between the carbon dioxide ($CO_2$) emissions and the motor engine types of recently registered cars in Europe.
 
 There is also a pipeline in the `project` directory. This pipeline downloads data sources, performs cleaning and transformation tasks, and subsequently generates a new SQL dataset tailored to the specific requirements of the project. To run the pipeline locally and generate the SQL file, follow the next step.
 
@@ -56,7 +71,7 @@ To run tests, run the following command
   bash project/tests.sh
 ```
 
-# Future work
+## Future work
 
 It is recommended to explore data sources that provide in-depth details about cars, like open data from factories sharing their greenhouse gas (GHG) emissions during production. The impact on the environment goes beyond just using the car, and it's crucial to look at the whole life cycle. For example, if making electric cars produces a lot of GHG emissions, that's an important factor to think of. So, including data from the manufacturing phase is really important to get a complete picture of how different types of motors affect the environment.
 A comparative analysis allows for understanding tradeoffs between different motor types. If one type of vehicle has higher manufacturing emissions but significantly lower operational emissions, it's important to weigh these factors when considering the overall environmental impact.
@@ -66,8 +81,7 @@ Understanding how GHG emissions change as vehicles age can inform policy decisio
 
 In Germany, there is available open data on the car market, providing access to information about new cars in the market that potential buyers may consider. Utilizing the data from these sources, models can be developed to train for $CO_2$ emissions. Users can then choose specific parameters for their preferred car, enabling them to compare and make informed decisions based on $CO_2$ emissions. This approach allows users to comprehend the environmental impact, illustrating how each selected car contributes a specific amount of $CO_2$ emissions per kilometer, empowering them to make environmentally conscious decisions.
 
-
-# Limitations
+## Limitations
 
 Since 2021, the emissions are measured with a new test procedure (Worldwide harmonized Light vehicles Test Procedure WLTP), compared to the New European Driving Cycle (NEDC) procedure used until 2020. The WLTP aims to reflect better real driving conditions and WLTP values are systematically higher than NEDC values. This change leads to a break in time series between 2020 and 2021. $^5$
 
