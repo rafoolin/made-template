@@ -29,13 +29,6 @@ class TestLoader(unittest.TestCase):
                 "D2": [3, 4],
             }
         )
-        mock_data_3 = pd.DataFrame(
-            {
-                "geo": ["A", "B"],
-                "TIME_PERIOD": [2023, 2029],
-                "D3": [5, 6],
-            }
-        )
 
         expected_result = pd.DataFrame(
             {
@@ -43,15 +36,10 @@ class TestLoader(unittest.TestCase):
                 "TIME_PERIOD": [2023],
                 "D1": [1],
                 "D2": [3],
-                "D3": [5],
             },
         )
 
-        result = loader.merge_data_to_sql(
-            sdg_data=mock_data_1,
-            road_data=mock_data_2,
-            tran_data=mock_data_3,
-        )
+        result = loader.merge_data_to_sql(sdg_data=mock_data_1, road_data=mock_data_2)
         # The extra columns are deleted and are DFs are merged
         pd.testing.assert_frame_equal(result, expected_result, check_like=True)
 

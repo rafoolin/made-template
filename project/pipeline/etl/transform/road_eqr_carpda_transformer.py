@@ -39,5 +39,4 @@ def road_eqr_carpda_data_transformer(data_frame: pd.DataFrame) -> pd.DataFrame:
         data_frame["TIME_PERIOD"] = pd.to_datetime(data_frame["TIME_PERIOD"], format='%Y')
     # Reset indexes after changing and dropping rows
     data_frame = data_frame.reset_index(drop=True)
-    print(data_frame)
     return data_frame

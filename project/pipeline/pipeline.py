@@ -5,10 +5,8 @@ import etl.extract.sdg_extractor as sdg_e
 import etl.extract.geo_extractor as geo_e
 import etl.extract.motor_energy_extractor as motor_e
 import etl.extract.unit_extractor as unit_e
-import etl.extract.tran_r_vehst_extractor as tran_e
 import etl.extract.road_eqr_carpda_extractor as road_e
 import etl.transform.road_eqr_carpda_transformer as road_t
-import etl.transform.tran_r_vehst_transformer as tran_t
 import etl.transform.sdg_transformer as sdg_t
 from etl.load import loader
 
@@ -34,10 +32,6 @@ class Pipeline:
         self.unit = unit_e.unit_data_extractor()
         print(colored("Extracting unit data source Finished!", "green"))
 
-        print(colored("Extracting Tran_r_vhest data source...", "green"))
-        self.tran = tran_e.tran_r_vehst_data_extractor()
-        print(colored("Extracting Tran_r_vhest data source Finished!", "green"))
-
         print(colored("Extracting Road_eqr_catpda data source...", "green"))
         self.road = road_e.road_eqr_carpda_data_extractor()
         print(colored("Extracting Road_eqr_catpda data source Finished!", "green"))
@@ -49,10 +43,6 @@ class Pipeline:
         print(colored("Transforming Road_eqr_catpda data source...", "green"))
         self.cleaned_road = road_t.road_eqr_carpda_data_transformer(self.road)
         print(colored("Transforming Road_eqr_catpda data source Finished!", "green"))
-
-        print(colored("Transforming tran_r_vehst data source...", "green"))
-        self.cleaned_tran = tran_t.tran_r_vehst_data_transformer(self.tran)
-        print(colored("Transforming tran_r_vehst data source Finished!", "green"))
 
         print(colored("Transforming SDG data source...", "green"))
         self.cleaned_sdg = sdg_t.sdg_data_transformer(self.sdg)
@@ -67,7 +57,6 @@ class Pipeline:
         self.merged_data = loader.merge_data_to_sql(
             sdg_data=self.cleaned_sdg,
             road_data=self.cleaned_road,
-            tran_data=self.cleaned_tran,
         )
         # Convert column names to lowercase
         self.merged_data.columns = self.merged_data.columns.str.lower()
@@ -104,8 +93,6 @@ class Pipeline:
             )
             return
 
-        # Transform
-        # TODO:: rafoolin/made-template#14
         try:
             self.__transform()
         except Exception as e:
