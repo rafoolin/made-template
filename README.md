@@ -1,5 +1,5 @@
 
-# Association between newly registered cars and Greenhouse gas[^r1] emissions in the Europe
+# Association between newly registered cars and Greenhouse gas[^r1] emissions in the EU
 
 ## Badges
 
