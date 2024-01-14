@@ -84,6 +84,10 @@ Here is the link to wiki for the projects or exercises if they need more explana
 
 * [Update final ETL database to meet the requirements][i10]
 
+### Project Work 07
+
+* [Update README.md][i11]
+
 [i2]: https://github.com/rafoolin/made-template/issues/2
 [i3]: https://github.com/rafoolin/made-template/issues/3
 [i4]: https://github.com/rafoolin/made-template/issues/4
@@ -93,6 +97,7 @@ Here is the link to wiki for the projects or exercises if they need more explana
 [i8]: https://github.com/rafoolin/made-template/issues/20
 [i9]: https://github.com/rafoolin/made-template/issues/22
 [i10]: https://github.com/rafoolin/made-template/issues/23
+[i11]: https://github.com/rafoolin/made-template/issues/27
 
 ## References and footnotes
 
