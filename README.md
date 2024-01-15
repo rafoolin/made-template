@@ -1,5 +1,5 @@
 
-# Association between newly registered cars and Greenhouse gas[^r1] emissions in the EU
+# Association between newly registered Passenger cars[^r1] and Greenhouse gas[^r2] emissions in the EU
 
 ## Badges
 
@@ -11,7 +11,7 @@
 
 ![cars](./git_resources/pic.jpg)
 
-Greenhouse gas emissions from transport account for 25% of the total EU greenhouse gas emissions. In order to achieve climate neutrality by 2050, as specified in the European Green Deal, there is a target to reduce greenhouse gas emissions from the transport sector by 90%. [^r2]
+Greenhouse gas emissions from transport account for 25% of the total EU greenhouse gas emissions. In order to achieve climate neutrality by 2050, as specified in the European Green Deal, there is a target to reduce greenhouse gas emissions from the transport sector by 90%. [^r3]
 
 In this project, the primary objective is to explore the correlation between automobile choices and $CO_2$ emissions. This project aims to examine the impact of selecting one type of car over another on $CO_2$ emissions and its consequent effects on various aspects of life. The objective is to comprehend how individuals' choices of car fuel contribute to the quantity of $CO_2$ emissions.
 
@@ -124,6 +124,8 @@ If you have any feedback, please reach out to me at niloo.jv@gmail.com
 
 Photo by <a href="https://unsplash.com/@hdbernd?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Bernd 📷 Dittrich</a> on <a href="https://unsplash.com/photos/a-large-truck-parked-on-the-side-of-a-road-jKTTnPf7GMg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
   
-[^r1]: Only $CO2$ is considered among all the other greenhouse gases in this report.
+[^r1]: A passenger car is a road motor vehicle, other than a moped or a motor cycle, intended for the carriage of passengers and designed to seat no more than nine persons (including the driver). The term passenger car also covers microcars (small cars which, depending on individual Member State legislation, may need no permit to be driven and/ or benefit from lower vehicle taxation), taxis and other hired passenger cars, provided that they have fewer than 10 seats in total. This category may also includes vans designed and used primarily for transport of passengers, as well as ambulances and motor homes. Excluded are light goods road vehicles, as well as motor coaches and buses and mini-buses/mini-coaches. [more...](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:Passenger_car)
 
-[^r2]: EC, 2021, Communication from the Commission to the European Parliament, the Council, the European Economic and Social Committee and the Committee of the Regions ‘Fit for 55’: delivering the EU’s 2030 Climate Target on the way to climate neutrality, COM(2021) 550 final
+[^r2]: Only $CO2$ is considered among all the other greenhouse gases in this report.
+
+[^r3]: EC, 2021, Communication from the Commission to the European Parliament, the Council, the European Economic and Social Committee and the Committee of the Regions ‘Fit for 55’: delivering the EU’s 2030 Climate Target on the way to climate neutrality, COM(2021) 550 final
