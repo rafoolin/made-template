@@ -88,6 +88,8 @@ Here is the link to wiki for the projects or exercises if they need more explana
 
 * [Update README.md][i11]
 
+* [Create final slide][i12]
+
 [i2]: https://github.com/rafoolin/made-template/issues/2
 [i3]: https://github.com/rafoolin/made-template/issues/3
 [i4]: https://github.com/rafoolin/made-template/issues/4
@@ -98,6 +100,7 @@ Here is the link to wiki for the projects or exercises if they need more explana
 [i9]: https://github.com/rafoolin/made-template/issues/22
 [i10]: https://github.com/rafoolin/made-template/issues/23
 [i11]: https://github.com/rafoolin/made-template/issues/27
+[i12]: https://github.com/rafoolin/made-template/issues/29
 
 ## References and footnotes
 
