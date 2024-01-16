@@ -15,6 +15,10 @@ Greenhouse gas emissions from transport account for 25% of the total EU greenhou
 
 In this project, the primary objective is to explore the correlation between automobile choices and $CO_2$ emissions. This project aims to examine the impact of selecting one type of car engine over another on $CO_2$ emissions and its consequent effects on various aspects of life. The objective is to comprehend how individuals' choices of car engine fuel contribute to the quantity of $CO_2$ emissions.
 
+### Presentation
+
+A presentation([slide.pdf](https://github.com/rafoolin/made-template/blob/main/project/slides.pdf)) is available for the final report.
+
 ## Data sources
 
 ### Main data sources
