@@ -13,7 +13,7 @@
 
 Greenhouse gas emissions from transport account for 25% of the total EU greenhouse gas emissions. In order to achieve climate neutrality by 2050, as specified in the European Green Deal, there is a target to reduce greenhouse gas emissions from the transport sector by 90%. [^r3]
 
-In this project, the primary objective is to explore the correlation between automobile choices and $CO_2$ emissions. This project aims to examine the impact of selecting one type of car over another on $CO_2$ emissions and its consequent effects on various aspects of life. The objective is to comprehend how individuals' choices of car fuel contribute to the quantity of $CO_2$ emissions.
+In this project, the primary objective is to explore the correlation between automobile choices and $CO_2$ emissions. This project aims to examine the impact of selecting one type of car engine  over another on $CO_2$ emissions and its consequent effects on various aspects of life. The objective is to comprehend how individuals' choices of car engine fuel contribute to the quantity of $CO_2$ emissions.
 
 ## Data sources
 
