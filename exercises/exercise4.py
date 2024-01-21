@@ -105,15 +105,7 @@ class Pipeline:
         if self.logging:
             print(f"CSV file path: {csv_file_path}")
         # Only read some of the columns
-        columns_to_read = [
-            "Geraet",
-            "Hersteller",
-            "Model",
-            "Monat",
-            "Temperatur in °C (DWD)",
-            "Batterietemperatur in °C",
-            "Geraet aktiv",
-        ]
+        columns_to_read = [0, 1, 2, 3, 4, 7, 8, 9]
         # Read the CSV file
         self.data_frame = pd.read_csv(
             csv_file_path,
@@ -122,6 +114,9 @@ class Pipeline:
             usecols=columns_to_read,
             on_bad_lines="skip",
         )
+
+        if self.logging:
+            print(self.data_frame["Temperatur in °C (DWD)"])
 
     def __transform(self):
         """
@@ -219,7 +214,7 @@ if __name__ == "__main__":
     ATTEMPTS = 1
     while ATTEMPTS < RETRY_THRESHOLD:
         try:
-            Pipeline(logging=False).run_pipeline(url=ZIP_URL)
+            Pipeline(logging=True).run_pipeline(url=ZIP_URL)
             break
         except Exception as e:
             ATTEMPTS += 1
