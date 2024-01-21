@@ -34,7 +34,7 @@ class ZipHelper:
         self.data_directory = f"{self.cwd.parent}/data"
         # Zip file name is the last part of the url
         zip_file_name = self.url.split("/")[-1]
-        # The path to save the downloaded zip file to
+        # The path to save the downloaded zip file into
         self.local_zip_filename = f"{self.data_directory}/{zip_file_name}"
         if self.logging:
             print(f"Local zip filename: {self.local_zip_filename}")
@@ -105,18 +105,51 @@ class Pipeline:
         if self.logging:
             print(f"CSV file path: {csv_file_path}")
         # Only read some of the columns
-        columns_to_read = [0, 1, 2, 3, 4, 8, 9]
+        columns_to_read = [
+            "Geraet",
+            "Hersteller",
+            "Model",
+            "Monat",
+            "Temperatur in °C (DWD)",
+            "Batterietemperatur in °C",
+            "Geraet aktiv",
+        ]
+        # Set types
+        columns_types = {
+            "Geraet": "Int64",
+            "Hersteller": "string",
+            "Model": "string",
+            "Monat": "Int64",
+            "Temperatur in °C (DWD)": "float",
+            "Batterietemperatur in °C": "float",
+            "Geraet aktiv": "string",
+        }
         # Read the CSV file
         self.data_frame = pd.read_csv(
             csv_file_path,
             sep=";",
             decimal=",",
+            index_col=False,
             usecols=columns_to_read,
+            dtype=columns_types,
             on_bad_lines="skip",
+            keep_default_na=True,
         )
 
         if self.logging:
             print(self.data_frame["Temperatur in °C (DWD)"])
+
+    def __celsius_to_fahrenheit(self, celsius: float) -> float:
+        """
+        Convert Celsius to Fahrenheit.
+
+        Parameters:
+        - celsius (float): Temperature in Celsius
+
+        Returns:
+        - float: Temperature in Fahrenheit
+        """
+        return celsius * 1.8 + 32.0
 
     def __transform(self):
         """
@@ -136,10 +169,12 @@ class Pipeline:
         # Formula: (TemperatureInCelsius * 9/5) + 32
         # keep the same column names
         # 02|01- Temperatur
-        self.data_frame["Temperatur"] = self.data_frame["Temperatur"] * 9.0 / 5.0 + 32.0
+        self.data_frame["Temperatur"] = self.__celsius_to_fahrenheit(
+            self.data_frame["Temperatur"]
+        )
         # 02|02- Batterietemperatur
-        self.data_frame["Batterietemperatur"] = (
-            self.data_frame["Batterietemperatur"] * 9.0 / 5.0 + 32.0
+        self.data_frame["Batterietemperatur"] = self.__celsius_to_fahrenheit(
+            self.data_frame["Batterietemperatur"]
         )
         if self.logging:
             print("\nTransformed data frame:\n", self.data_frame)
@@ -152,7 +187,7 @@ class Pipeline:
             print("Validating the data...")
 
         # 01- Drop rows with missing values
-        self.data_frame = self.data_frame.dropna()
+        self.data_frame.dropna(inplace=True)
         # 02- Drop rows if "Geraet" is NOT over 0
         self.data_frame = self.data_frame[self.data_frame["Geraet"] > 0]
         # 03- Drop rows if "Monat" is NOT between 1 and 12
