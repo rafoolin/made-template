@@ -105,7 +105,7 @@ class Pipeline:
         if self.logging:
             print(f"CSV file path: {csv_file_path}")
         # Only read some of the columns
-        columns_to_read = [0, 1, 2, 3, 4, 7, 8, 9]
+        columns_to_read = [0, 1, 2, 3, 4, 8, 9]
         # Read the CSV file
         self.data_frame = pd.read_csv(
             csv_file_path,
@@ -214,7 +214,7 @@ if __name__ == "__main__":
     ATTEMPTS = 1
     while ATTEMPTS < RETRY_THRESHOLD:
         try:
-            Pipeline(logging=True).run_pipeline(url=ZIP_URL)
+            Pipeline(logging=False).run_pipeline(url=ZIP_URL)
             break
         except Exception as e:
             ATTEMPTS += 1
