@@ -2,12 +2,12 @@
 Deadline: 
 	22.11.2023 - 29.11.2023
 """
-import pandas as pd
 import pathlib
+import pandas as pd
 import sqlalchemy as sql
 
 
-class pipeline:
+class Pipeline:
     def __extract(self, url: str, download_csv=False):
         """
         Load the data source by URL.
@@ -97,17 +97,17 @@ class pipeline:
 
 
 if __name__ == "__main__":
-    url = "https://download-data.deutschebahn.com/static/datasets/haltestellen/D_Bahnhof_2020_alle.CSV"
-    retry_threshold = 5
-    attempts = 1
-    while attempts < retry_threshold:
+    URL = "https://download-data.deutschebahn.com/static/datasets/haltestellen/D_Bahnhof_2020_alle.CSV"
+    RETRY_THRESHOLD = 5
+    ATTEMPTS = 1
+    while ATTEMPTS < RETRY_THRESHOLD:
         try:
-            pipeline().run_pipeline(url=url)
+            Pipeline().run_pipeline(url=URL)
             break
         except Exception as e:
-            attempts += 1
+            ATTEMPTS += 1
             print(f"Something went wrong! {e}")
-            print(f"Try #{attempts} in progress...")
-    if attempts == 5:
-        print(f"\nLOOK!! I tried to run the pipeline {retry_threshold} times!")
+            print(f"Try #{ATTEMPTS} in progress...")
+    if ATTEMPTS == 5:
+        print(f"\nLOOK!! I tried to run the pipeline {RETRY_THRESHOLD} times!")
         print("It's your turn to check the code!")
