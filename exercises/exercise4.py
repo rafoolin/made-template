@@ -54,7 +54,7 @@ class ZipHelper:
         Extract the zip file and return list of extracted files names
 
         Returns:
-            str: filename of the extracted files(paths)
+            list: filename of the extracted files(paths)
         """
         # Download the zip file
         self.__download()
@@ -192,6 +192,9 @@ class Pipeline:
         self.data_frame = self.data_frame[self.data_frame["Geraet"] > 0]
         # 03- Drop rows if "Monat" is NOT between 1 and 12
         self.data_frame = self.data_frame[self.data_frame["Monat"].between(1, 12)]
+        # 04- Drop rows if "Geraet aktiv" is NOT "Ja" or "Nein"
+        filter_condition = self.data_frame["Geraet aktiv"].isin(["Ja", "Nein"])
+        self.data_frame = self.data_frame[filter_condition]
 
     def __load(self):
         """
