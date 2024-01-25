@@ -1,0 +1,77 @@
+//Deadline: 
+//	24.01.2024 - 31.01.2024
+
+pipeline StopsPipeline {
+	// Pipeline
+	StopsExtractor 
+		-> ZipArchiveInterpreter
+		-> StopsFilePicker
+		-> StopsTextFileInterpreter
+		-> StopsCSVInterpreter
+		-> StopsTableInterpreter
+		-> StopsLoader;
+	
+	// Download Zip file
+	block StopsExtractor oftype HttpExtractor {
+		url: 'https://gtfs.rhoenenergie-bus.de/GTFS.zip';
+	}
+	// Interpret the ZIP file 
+	block ZipArchiveInterpreter oftype ArchiveInterpreter {
+        archiveType: "zip";
+    }
+	// Pick "stops.txt" file
+	block StopsFilePicker oftype FilePicker {
+		path:'/stops.txt';
+	}
+	// Text Interpreter
+	block StopsTextFileInterpreter oftype TextFileInterpreter {
+		encoding: "utf8";
+	}
+	// CSV Interpreter
+    block StopsCSVInterpreter oftype CSVInterpreter {
+		delimiter: ',';
+        enclosing: '"';
+		enclosingEscape: '"';
+	}
+	// Table Interpreter
+	block StopsTableInterpreter oftype TableInterpreter {
+		header: true;
+		columns: [
+			'stop_id' oftype integer,
+			'stop_name' oftype text,
+			'stop_lat' oftype GeoCoordinate,
+			'stop_lon' oftype GeoCoordinate,
+			'zone_id' oftype ZoneId,
+		];
+	}
+	// Generate the SQLITE database
+    block StopsLoader oftype SQLiteLoader {
+        table: "stops";
+        file: "./gtfs.sqlite";
+    }
+}
+
+// Type: ZoneId
+// Only keep stops from zone 2001
+valuetype ZoneId oftype integer {
+    constraints: [
+        ZoneOf2001,
+    ];
+}	
+constraint ZoneOf2001 on integer: 
+  value == 2001;
+
+
+// Type: GeoCoordinate
+// Only keep stops with longitude and latitude in [-90.0, 90.0]
+valuetype GeoCoordinate oftype decimal {
+    constraints: [
+        ValidGeoCoordinate,
+    ];
+}	
+constraint ValidGeoCoordinate oftype RangeConstraint {
+	lowerBound: -90.0;
+	lowerBoundInclusive: true;
+	upperBound: 90.0;
+	upperBoundInclusive: true;
+}
