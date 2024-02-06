@@ -109,7 +109,7 @@ In Germany, there is available open data on the car market, providing access to 
 
 ## Limitations
 
-Since 2021, the emissions are measured with a new test procedure (Worldwide harmonized Light vehicles Test Procedure WLTP), compared to the New European Driving Cycle (NEDC) procedure used until 2020. The WLTP aims to reflect better real driving conditions and WLTP values are systematically higher than NEDC values. This change leads to a break in time series between 2020 and 2021. $^5$
+Since 2021, the emissions are measured with a new test procedure (Worldwide harmonized Light vehicles Test Procedure WLTP), compared to the New European Driving Cycle (NEDC) procedure used until 2020. The WLTP aims to reflect better real driving conditions and WLTP values are systematically higher than NEDC values. This change leads to a break in time series between 2020 and 2021. [^4]
 
 The $CO_2$ emission data lacks information for the year 2023, and significant fluctuations occurred from 2019 to 2021, primarily attributed to the COVID-19 situation.
 
@@ -133,3 +133,5 @@ Photo by <a href="https://unsplash.com/@hdbernd?utm_content=creditCopyText&utm_m
 [^r2]: Norway as a None Eu country is also considered as it is part of Europe and involves in different agreements.
 
 [^r3]: EC, 2021, Communication from the Commission to the European Parliament, the Council, the European Economic and Social Committee and the Committee of the Regions ‘Fit for 55’: delivering the EU’s 2030 Climate Target on the way to climate neutrality, COM(2021) 550 final
+
+[^4]: [https://ec.europa.eu/eurostat/cache/metadata/en/sdg_12_30_esmsip2.htm](https://ec.europa.eu/eurostat/cache/metadata/en/sdg_12_30_esmsip2.htm)
